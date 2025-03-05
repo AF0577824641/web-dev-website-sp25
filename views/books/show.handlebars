@@ -1,0 +1,135 @@
+<div class="container mt-4">
+  <h1 class="mb-4">{{book.title}}</h1>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Book Details</h5>
+      
+      <div class="mb-3">
+        <strong>Publishing Year:</strong> {{book.publishingYear}}
+      </div>
+      
+      <div class="mb-3">
+        <strong>Authors:</strong>
+        {{#if authors.length}}
+          <ul class="list-unstyled">
+            {{#each authors}}
+              <li>{{this.firstName}} {{this.lastName}}</li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>No authors listed</p>
+        {{/if}}
+      </div>
+      
+      <div class="mb-3">
+        <strong>Genres:</strong>
+        {{#if genres.length}}
+          <ul class="list-unstyled">
+            {{#each genres}}
+              <li>{{this.name}}</li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p>No genres listed</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-3">
+    <a href="/books" class="btn btn-secondary">Back to Books</a>
+    <a href="/books/edit?id={{@root.id}}" class="btn btn-primary">Edit Book</a>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h1>{{book.title}}</h1>
+  
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Authors</h5>
+      <ul class="list-group list-group-flush">
+        {{#each book.authors}}
+          <li class="list-group-item">{{this.firstName}} {{this.lastName}}</li>
+        {{else}}
+          <li class="list-group-item">No authors listed</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Genres</h5>
+      <ul class="list-group list-group-flush">
+        {{#each book.genres}}
+          <li class="list-group-item">{{this.name}}</li>
+        {{else}}
+          <li class="list-group-item">No genres listed</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Publishing Information</h5>
+      <p class="card-text">Published in {{book.publishingYear}}</p>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <a href="/books/edit?id={{@index}}" class="btn btn-primary">Edit Book</a>
+    <a href="/books" class="btn btn-secondary">Back to Books</a>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h1>{{book.title}}</h1>
+  
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="mb-3">
+        <h5 class="card-title">Authors:</h5>
+        <ul class="list-group">
+          {{#each authors}}
+            <li class="list-group-item">{{this.name}}</li>
+          {{else}}
+            <li class="list-group-item">No authors listed</li>
+          {{/each}}
+        </ul>
+      </div>
+      
+      <div class="mb-3">
+        <h5 class="card-title">Genres:</h5>
+        <ul class="list-group">
+          {{#each genres}}
+            <li class="list-group-item">{{this.name}}</li>
+          {{else}}
+            <li class="list-group-item">No genres listed</li>
+          {{/each}}
+        </ul>
+      </div>
+      
+      <div class="mb-3">
+        <h5 class="card-title">Published:</h5>
+        <p class="card-text">{{book.year}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-4">
+    <a href="/books/edit?id={{id}}" class="btn btn-primary">Edit Book</a>
+    <a href="/books" class="btn btn-secondary">Back to Books List</a>
+  </div>
+</div>
+
+<h1>{{book.title}}</h1>
+{{#if author}}
+  <p>Written by {{author.firstName}} {{author.lastName}}</p>
+{{/if}}
+<p>
+  Originally published in
+  {{book.publishingYear}}
+</p>
